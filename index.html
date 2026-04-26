@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Workout Planner</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Source+Serif+4:opsz,wght@8..60,600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="intro">
+        <p class="eyebrow">Workout Planner</p>
+        <h1>Build a weekly routine that matches your goal, gear, and schedule.</h1>
+        <p class="lede">
+          Enter a few details and get a readable training week with session focus,
+          exercise notes, and time estimates.
+        </p>
+      </section>
+
+      <section class="planner-grid">
+        <form class="planner-card" id="planner-form">
+          <div class="card-header">
+            <h2>Your setup</h2>
+            <p>Choose the inputs that shape your plan.</p>
+          </div>
+
+          <label class="field">
+            <span>Fitness goal</span>
+            <select id="goal" name="goal">
+              <option value="strength">Build strength</option>
+              <option value="fat-loss">Fat loss</option>
+              <option value="muscle">Build muscle</option>
+              <option value="endurance">Improve endurance</option>
+              <option value="general">General fitness</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span>Experience level</span>
+            <select id="experience" name="experience">
+              <option value="beginner">Beginner</option>
+              <option value="intermediate">Intermediate</option>
+              <option value="advanced">Advanced</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span>Equipment available</span>
+            <select id="equipment" name="equipment">
+              <option value="bodyweight">Bodyweight only</option>
+              <option value="dumbbells">Dumbbells</option>
+              <option value="full-gym">Full gym</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span>Days per week</span>
+            <input
+              id="days"
+              name="days"
+              type="range"
+              min="2"
+              max="6"
+              value="4"
+            />
+            <div class="range-row">
+              <span>2 days</span>
+              <output id="days-output" for="days">4 days</output>
+              <span>6 days</span>
+            </div>
+          </label>
+
+          <button type="submit" class="generate-btn">Generate plan</button>
+        </form>
+
+        <section class="results-card" aria-live="polite">
+          <div class="results-header">
+            <div>
+              <p class="eyebrow muted">Generated plan</p>
+              <h2 id="plan-title">4-day strength split</h2>
+            </div>
+            <p class="summary-time" id="summary-time">About 50 min/session</p>
+          </div>
+
+          <div class="overview" id="overview"></div>
+          <div class="schedule" id="schedule"></div>
+        </section>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
